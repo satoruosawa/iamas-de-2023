@@ -11,6 +11,6 @@ void setup() {
 void loop() {
   M5.Lcd.setCursor(0, 10);
   M5.Lcd.println(number);
-  number = number + 1;  // numberに1追加して代入（上書き）する
-  delay(1000);          // 1000ミリ秒 = 1秒間 待つ
+  number++;     // numberに1追加して代入（上書き）する
+  delay(1000);  // 1000ミリ秒 = 1秒間 待つ
 }

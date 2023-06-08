@@ -12,5 +12,5 @@ void loop() {
   M5.Lcd.setCursor(100, 100);
   M5.Lcd.println(number);
   number = number + 0.1;
-  delay(1000);
+  delay(100);
 }
