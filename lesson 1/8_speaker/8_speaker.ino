@@ -1,6 +1,9 @@
 #include <M5Stack.h>
 
-void setup() { M5.begin(); }
+void setup() {
+  M5.begin();
+  M5.Speaker.setVolume(6);  // スピーカーのボリュームを設定 初期値は8で、範囲は 0 ~ 10
+}
 
 void loop() {
   M5.update();  // ボタンかスピーカーを使うときは、この行を追加
