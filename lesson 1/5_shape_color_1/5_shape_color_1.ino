@@ -12,6 +12,6 @@ void loop() {
   } else {
     M5.Lcd.fillRect(90, 50, 140, 140, BLUE);  // flagがfalseの場合の処理
   }
-  flag = !flag;
+  flag = !flag;  // flagの値を反転させる
   delay(1000);
 }

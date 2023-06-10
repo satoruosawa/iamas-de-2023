@@ -1,6 +1,6 @@
 #include <M5Stack.h>
 
-int flag = 0;  // flagという名前の真偽値をグローバル領域に宣言
+int flag = 0;
 
 void setup() {
   M5.begin();
