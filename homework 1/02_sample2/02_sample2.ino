@@ -9,7 +9,9 @@ float start_sec = 0;
 int center_x = 160;
 int center_y = 120;
 
-void setup() { M5.begin(); }
+void setup() {
+  M5.begin();
+}
 
 void buttonManagement() {
   if (is_measuring) {

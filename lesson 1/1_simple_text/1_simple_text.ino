@@ -7,7 +7,8 @@ void setup() {
 
   M5.Lcd.setTextSize(3);           // テキストのサイズを指定、初期値は1
   M5.Lcd.setCursor(60, 100);         // カーソルの位置(x,y)を指定、初期値は(0,0)
-  M5.Lcd.println("Hello world.");  // 文字列を表示
+  M5.Lcd.print("Hello IAMAS.");  // 文字列を表示
+  M5.Lcd.println("Hello IAMAS.");  // 文字列を表示
 }
 
 void loop() {

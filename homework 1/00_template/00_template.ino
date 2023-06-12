@@ -2,7 +2,7 @@
 
 bool is_measuring = false;
 float accumulate_sec = 0;
-float measure_sec = 0;
+float measure_sec = 0;  // 計測時間を保持している変数
 float start_sec = 0;
 
 void setup() {

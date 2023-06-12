@@ -23,7 +23,7 @@ void loop() {
     if (M5.BtnA.wasPressed()) {
       measure_sec = 0;
       accumulate_sec = 0;
-      M5.Lcd.clear();
+      M5.Lcd.fillScreen(BLACK);
     }
     if (M5.BtnC.wasPressed()) {
       start_sec = millis() / 1000.0;
@@ -31,8 +31,12 @@ void loop() {
       is_measuring = true;
     }
   }
-  int x = fmod(measure_sec, 10) / 10 * 320;  // fmod(x, y)はxをyで割った余り
-  int y = floor(measure_sec / 10);           // floorは切り捨て
+
+  int x = fmod(measure_sec, 10) / 10 * 320;
+  // fmod(x, y)は実数のモジュロ演算。x/yの余り。
+  // arduinoでは % は、整数同士でしか使えません。実数のモジュロ演算をしたい場合はfmod関数を使いましょう。
+
+  int y = floor(measure_sec / 10);  // floor(x)は切り捨て
 
   M5.Lcd.drawRect(x, y * 20 + 40, 1, 18, WHITE);
 
