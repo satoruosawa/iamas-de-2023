@@ -5,6 +5,9 @@ int volume = 6;
 void setup() {
   M5.begin();
   M5.Speaker.setVolume(volume);  // スピーカーのボリュームを設定 範囲は 0 ~ 10
+  M5.Lcd.fillTriangle(60, 220, 74, 220, 67, 228, LIGHTGREY);
+  M5.Lcd.fillCircle(160, 224, 6, LIGHTGREY);
+  M5.Lcd.fillTriangle(246, 228, 260, 228, 253, 220, LIGHTGREY);
 }
 
 void loop() {
