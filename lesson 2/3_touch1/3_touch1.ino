@@ -67,7 +67,7 @@ void loop() {
   lasttouched = currtouched;
 
   // comment out this line for detailed data from the sensor!
-  return;
+  // return;
   
   // debugging info, what
   Serial.print("\t\t\t\t\t\t\t\t\t\t\t\t\t 0x"); Serial.println(cap.touched(), HEX);

@@ -18,5 +18,5 @@ void loop() {
   Serial.print(",");
   Serial.println(button_c);
 
-  delay(10);
+  delay(100);
 }
