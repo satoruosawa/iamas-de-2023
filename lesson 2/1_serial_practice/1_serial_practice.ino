@@ -5,9 +5,8 @@ void setup() {
 }
 
 void loop() {
-  M5.update();  // buttonを使うときはこの行を追加
+  M5.update();
 
-  // M5.BtnX.isPressed()は、ボタンが押されている間trueを返す。
   int button_a = M5.BtnA.isPressed();
   int button_b = M5.BtnB.isPressed();
   int button_c = M5.BtnC.isPressed();
@@ -18,10 +17,10 @@ void loop() {
   Serial.print(",");
   Serial.println(button_c);
 
+  // ボタンA（左のボタン）の処理
   if (M5.BtnA.wasPressed()) {
     M5.Lcd.fillRect(0, 0, 100, 240, WHITE);
   }
-  // M5.BtnX.wasReleased()は、ボタンAを離したときに1度だけtrueになる。
   if (M5.BtnA.wasReleased()) {
     M5.Lcd.fillRect(0, 0, 100, 240, BLACK);
   }
