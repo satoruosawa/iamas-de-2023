@@ -30,18 +30,19 @@ void setup() {
 }
 
 void loop() {
-    int button_a = M5.BtnA.isPressed();
-    int button_b = M5.BtnB.isPressed();
-    int button_c = M5.BtnC.isPressed();
-    // データ送信
-    wifiUdp.beginPacket(pc_addr, pc_port);
-    wifiUdp.print(button_a);
-    wifiUdp.print(",");
-    wifiUdp.print(button_b);
-    wifiUdp.print(",");
-    wifiUdp.println(button_c);
-    wifiUdp.endPacket();
+  M5.update();
+  int button_a = M5.BtnA.isPressed();
+  int button_b = M5.BtnB.isPressed();
+  int button_c = M5.BtnC.isPressed();
+  // データ送信
+  wifiUdp.beginPacket(pc_ip.c_str(), pc_port);
+  wifiUdp.print(button_a);
+  wifiUdp.print(",");
+  wifiUdp.print(button_b);
+  wifiUdp.print(",");
+  wifiUdp.println(button_c);
+  wifiUdp.endPacket();
 
 
-    delay(100); 
+  delay(100);
 }
