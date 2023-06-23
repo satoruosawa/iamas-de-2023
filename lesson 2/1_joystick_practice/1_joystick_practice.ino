@@ -2,9 +2,6 @@
 
 int i2c_address = 0x52;
 
-int x_value;
-int y_value;
-
 void setup() {
   M5.begin();
   Wire.begin();
@@ -14,8 +11,8 @@ void loop() {
   Wire.requestFrom(i2c_address, 3);
 
   if (Wire.available()) { 
-    x_value = Wire.read();
-    y_value = Wire.read();
+    int x_value = Wire.read();
+    int y_value = Wire.read();
 
     M5.Lcd.fillScreen(BLACK);
     

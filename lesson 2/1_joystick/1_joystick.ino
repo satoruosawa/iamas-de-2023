@@ -4,10 +4,6 @@
 // 0xは16進数表記
 int i2c_address = 0x52;
 
-int x_value;
-int y_value;
-int button_value;
-
 void setup() {
   M5.begin();
 
@@ -22,10 +18,10 @@ void loop() {
   // 3バイトのデータをJOYSTICKデバイスにリクエスト
   Wire.requestFrom(i2c_address, 3);
 
-  if (Wire.available()) {  // スレーブからデータが帰ってきた場合の分岐
-    x_value = Wire.read();
-    y_value = Wire.read();
-    button_value = Wire.read();
+  if (Wire.available()) {  // スレーブからデータが返ってきた場合の分岐
+    int x_value = Wire.read();
+    int y_value = Wire.read();
+    int button_value = Wire.read();
 
     M5.Lcd.setCursor(0, 50);
     M5.Lcd.print("X: ");
