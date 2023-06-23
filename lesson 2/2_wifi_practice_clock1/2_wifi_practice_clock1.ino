@@ -1,12 +1,13 @@
 #include <M5Stack.h>
 #include <WiFi.h>
 
-const String ssid = "Buffalo-G-8500";
-const String password = "55dbda7bfde68";
-const String ntp_server = "ntp.nict.jp";
+String ssid = "Buffalo-G-8500";
+String password = "55dbda7bfde68";
 
-const long gmt_offset_sec = 9 * 3600;
-const int daylight_offset_sec = 0;
+String ntp_server = "ntp.nict.jp";
+
+long gmt_offset_sec = 9 * 3600;
+int daylight_offset_sec = 0;
 
 void setup() {
   M5.begin();
@@ -26,8 +27,8 @@ void setup() {
   M5.Lcd.println(" connected.");
   delay(3000);
 
-  configTime(gmt_offset_sec, daylight_offset_sec,
-             ntp_server.c_str());  // 時刻を同期
+  // 時刻を同期
+  configTime(gmt_offset_sec, daylight_offset_sec, ntp_server.c_str());
 }
 
 void loop() {
@@ -65,6 +66,6 @@ void loop() {
                   center_y,
                   center_x + sh_length * cos(TWO_PI * sh_value - PI / 2),
                   center_y + sh_length * sin(TWO_PI * sh_value - PI / 2),
-                  WHITE);
+                  LIGHTGREY);
   delay(100);
 }

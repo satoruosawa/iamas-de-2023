@@ -2,16 +2,15 @@
 #include <WiFi.h>
 
 // Wi-Fiの設定
-const String ssid = "Buffalo-G-8500";     // XXXX部分を各自利用可能なWiFiのSSIDに変更
-const String password = "55dbda7bfde68";  // XXXX部分を各自利用可能なWiFiのWiFiパスワードに変更
+String ssid = "Buffalo-G-8500";     // WiFiのSSIDを指定
+String password = "55dbda7bfde68";  // WiFiパスワードを指定
 
 void setup() {
   M5.begin();
 
   // WiFi へ接続開始
-  //  WiFi.begin関数は第一引数がSSID, 第二引数がパスワードを取ります。
+  // WiFi.begin関数は第一引数がSSID, 第二引数がパスワードを取ります。
   // c_str()はStringからC言語スタイルの文字配列を取得する関数です。
-  // 今回の授業では特に理解する必要はありません。
   WiFi.begin(ssid.c_str(), password.c_str());
 
   M5.Lcd.setTextSize(2);
@@ -25,7 +24,7 @@ void setup() {
 
   // ループを抜けたということは、接続完了を意味します。
   M5.Lcd.println(" connected.");
-  delay(3000);  // connectedを3秒間表示してから画面を消します。
+  delay(3000);  // "connected."を3秒間表示してから画面を消します。
 
   M5.Lcd.fillScreen(BLACK);
 

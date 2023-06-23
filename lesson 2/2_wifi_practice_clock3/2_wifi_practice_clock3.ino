@@ -3,12 +3,11 @@
 
 const String ssid = "Buffalo-G-8500";
 const String password = "55dbda7bfde68";
+
 const String ntp_server = "ntp.nict.jp";
 
 const long gmt_offset_sec = 9 * 3600;
 const int daylight_offset_sec = 0;
-
-TFT_eSprite img = TFT_eSprite(&M5.Lcd);
 
 void setup() {
   M5.begin();
@@ -28,11 +27,10 @@ void setup() {
   M5.Lcd.println(" connected.");
   delay(3000);
 
-  configTime(gmt_offset_sec, daylight_offset_sec,
-             ntp_server.c_str());  // 時刻を同期
+  // 時刻を同期
+  configTime(gmt_offset_sec, daylight_offset_sec, ntp_server.c_str());
 
   M5.Lcd.fillScreen(BLACK);
-  img.createSprite(200, 200);  // 200 * 200 ピクセルのキャンバスを作成
 }
 
 void loop() {
@@ -43,8 +41,8 @@ void loop() {
     return;
   }
 
-  int r = time_data.tm_sec * 2;
-  M5.Lcd.drawCircle(160, 120, r, WHITE);
+  int radius = time_data.tm_sec * 2;
+  M5.Lcd.drawCircle(160, 120, radius, WHITE);
 
   if (time_data.tm_sec == 0) {
     M5.Lcd.fillScreen(BLACK);

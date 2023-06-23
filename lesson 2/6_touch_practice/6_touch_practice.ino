@@ -2,48 +2,34 @@
 #include <M5Stack.h>
 #include "Adafruit_MPR121.h"
 
-#ifndef _BV
-#define _BV(bit) (1 << (bit))
-#endif
+Adafruit_MPR121 mpr121 = Adafruit_MPR121();
 
+int i2c_address = 0x5A;  // タッチセンサのI2Cアドレスを指定
 
-// You can have up to 4 on one i2c bus but one is enough for testing!
-Adafruit_MPR121 cap = Adafruit_MPR121();
-
-// Keeps track of the last pins touched
-// so we know when buttons are 'released'
-uint16_t lasttouched = 0;
-uint16_t currtouched = 0;
-
-bool getSingleStatus(int pin) {
-  return (currtouched & _BV(pin)) != 0;
+bool getTouchedValue(uint16_t touched_data, int pin) {
+  return (touched_data & (1 << pin)) != 0;
 }
 
 void setup() {
   M5.begin();
-  // Default address is 0x5A, if tied to 3.3V its 0x5B
-  // If tied to SDA its 0x5C and if SCL then 0x5D
-  if (!cap.begin(0x5A)) {
-    Serial.println("MPR121 not found, check wiring?");
-    while (1)
-      ;
+
+  M5.Lcd.setTextSize(2);
+  if (!mpr121.begin(i2c_address)) {
+    M5.Lcd.println("MPR121 is not found.");
+    while (true) {}
   }
-  Serial.println("MPR121 found!");
 }
 
 void loop() {
-  // Serial.println(cap.readRegister8(0));
-  // Get the currently touched pads
-  currtouched = cap.touched();
+  uint16_t touched_data = mpr121.touched();
 
   for (int i = 0; i < 12; i++) {
-    if (getSingleStatus(i)) {
+    if (getTouchedValue(touched_data, i)) {
       M5.Lcd.fillRect(i * 26, 0, 25, 240, WHITE);
     } else {
       M5.Lcd.fillRect(i * 26, 0, 25, 240, BLACK);
     }
   }
 
-  // put a delay so it isn't overwhelming
   delay(100);
 }

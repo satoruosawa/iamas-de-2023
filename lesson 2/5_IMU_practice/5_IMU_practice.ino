@@ -7,8 +7,6 @@ float z_value = 0.0;
 void setup() {
   M5.begin();
   M5.IMU.Init();
-  M5.Lcd.fillScreen(BLACK);
-  M5.Lcd.setTextSize(2);
 }
 
 void loop() {

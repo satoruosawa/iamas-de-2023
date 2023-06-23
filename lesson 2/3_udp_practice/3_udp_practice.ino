@@ -2,47 +2,47 @@
 #include <WiFiUDP.h>
 #include <M5Stack.h>
 
-const String ssid = "Buffalo-G-8500";     // WiFiのSSIDを設定
-const String password = "55dbda7bfde68";  // WiFiパスワードに変更
+String ssid = "Buffalo-G-8500";
+String password = "55dbda7bfde68";
 
-WiFiUDP wifiUdp;
-String pc_ip = "192.168.1.7";  // PCのIPアドレス
-int pc_port = 12000;           // 送信先のポート
-int m5_port = 12001;           // M5Stackのポート
-
-int number = 0;
+WiFiUDP wifi_udp;
+String pc_ip = "192.168.1.7";
+int pc_port = 12000;
+int m5_port = 12001;
 
 void setup() {
   M5.begin();
-  M5.Power.begin();
-  M5.Lcd.setTextSize(2);
 
   WiFi.begin(ssid.c_str(), password.c_str());
+
+  M5.Lcd.setTextSize(2);
+  M5.Lcd.print("Connecting to the WiFi AP: " + ssid);
+
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     M5.Lcd.print(".");
   }
-  M5.Lcd.println("WiFi connected");
-  M5.Lcd.print("IP address = ");
-  M5.Lcd.println(WiFi.localIP());
+  
+  M5.Lcd.println(" connected.");
 
-  wifiUdp.begin(m5_port);
+  wifi_udp.begin(m5_port);
 }
 
 void loop() {
   M5.update();
+
   int button_a = M5.BtnA.isPressed();
   int button_b = M5.BtnB.isPressed();
   int button_c = M5.BtnC.isPressed();
-  // データ送信
-  wifiUdp.beginPacket(pc_ip.c_str(), pc_port);
-  wifiUdp.print(button_a);
-  wifiUdp.print(",");
-  wifiUdp.print(button_b);
-  wifiUdp.print(",");
-  wifiUdp.println(button_c);
-  wifiUdp.endPacket();
 
+  // データ送信
+  wifi_udp.beginPacket(pc_ip.c_str(), pc_port);
+  wifi_udp.print(button_a);
+  wifi_udp.print(",");
+  wifi_udp.print(button_b);
+  wifi_udp.print(",");
+  wifi_udp.println(button_c);
+  wifi_udp.endPacket();
 
   delay(100);
 }
