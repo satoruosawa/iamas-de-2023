@@ -1,15 +1,14 @@
 #include <M5Stack.h>
 
-float x_value = 0.0;
-float y_value = 0.0;
-float z_value = 0.0;
-
 void setup() {
   M5.begin();
   M5.IMU.Init();
 }
 
 void loop() {
+  float x_value = 0.0;
+  float y_value = 0.0;
+  float z_value = 0.0;
   M5.IMU.getAccelData(&x_value, &y_value, &z_value);
 
   M5.Lcd.fillScreen(BLACK);

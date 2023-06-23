@@ -1,9 +1,5 @@
 #include <M5Stack.h>
 
-float x_value = 0.0;
-float y_value = 0.0;
-float z_value = 0.0;
-
 void setup() {
   M5.begin();
 
@@ -15,6 +11,11 @@ void setup() {
 }
 
 void loop() {
+  // 加速度センサーのデータを取得するための変数を定義
+  float x_value = 0.0;
+  float y_value = 0.0;
+  float z_value = 0.0;
+
   // 加速度センサーの値を取得
   // 引数の頭に&をつけて渡すことを、ポインタ渡しと言います。
   M5.IMU.getAccelData(&x_value, &y_value, &z_value);
