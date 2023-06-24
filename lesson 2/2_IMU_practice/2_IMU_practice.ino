@@ -6,9 +6,9 @@ void setup() {
 }
 
 void loop() {
-  float x_value = 0.0;
-  float y_value = 0.0;
-  float z_value = 0.0;
+  float x_value;
+  float y_value;
+  float z_value;
   M5.IMU.getAccelData(&x_value, &y_value, &z_value);
 
   M5.Lcd.fillScreen(BLACK);

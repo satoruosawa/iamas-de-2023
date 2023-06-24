@@ -1,4 +1,3 @@
-#include <Wire.h>
 #include <M5Stack.h>
 #include "Adafruit_MPR121.h"
 
@@ -16,6 +15,7 @@ void setup() {
   M5.begin();
 
   M5.Lcd.setTextSize(2);
+
   if (!mpr121.begin(i2c_address)) {
     M5.Lcd.println("MPR121 is not found.");
     while (1)
