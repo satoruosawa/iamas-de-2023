@@ -8,6 +8,6 @@ void setup() {
 
 void loop() {
   Serial.println(number);  // シリアル通信で文字列をPCへ送信
-  number = number + 1;
+  number++;
   delay(1000);
 }

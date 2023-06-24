@@ -18,7 +18,8 @@ void setup() {
   M5.Lcd.setTextSize(2);
   if (!mpr121.begin(i2c_address)) {
     M5.Lcd.println("MPR121 is not found.");
-    while (1) {}
+    while (1)
+      ;
   }
 
   M5.Lcd.setCursor(0, 0);

@@ -39,6 +39,6 @@ void loop() {
   wifi_udp.endPacket();
   // パケット終了
 
-  number = number + 1;
+  number++;
   delay(1000);
 }
