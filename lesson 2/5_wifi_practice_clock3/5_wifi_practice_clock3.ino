@@ -1,8 +1,8 @@
 #include <M5Stack.h>
 #include <WiFi.h>
 
-const String ssid = "Buffalo-G-8500";
-const String password = "55dbda7bfde68";
+String ssid = "iamas-de";
+String password = "pass-iamas";
 
 const String ntp_server = "ntp.nict.jp";
 
@@ -41,12 +41,12 @@ void loop() {
     return;
   }
 
-  int radius = time_data.tm_sec * 2;
-  M5.Lcd.drawCircle(160, 120, radius, WHITE);
+  int y = time_data.tm_sec * 4;
+  M5.Lcd.drawLine(0, y, 320, y, WHITE);
 
   if (time_data.tm_sec == 0) {
     M5.Lcd.fillScreen(BLACK);
   }
 
-  delay(100);
+  delay(10);
 }

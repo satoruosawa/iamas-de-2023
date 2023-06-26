@@ -1,8 +1,8 @@
 #include <M5Stack.h>
 #include <WiFi.h>
 
-String ssid = "Buffalo-G-8500";
-String password = "55dbda7bfde68";
+String ssid = "iamas-de";
+String password = "pass-iamas";
 
 String ntp_server = "ntp.nict.jp";
 

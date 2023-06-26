@@ -2,11 +2,11 @@
 #include <WiFiUDP.h>
 #include <M5Stack.h>
 
-String ssid = "Buffalo-G-8500";
-String password = "55dbda7bfde68";
+String ssid = "iamas-de";
+String password = "pass-iamas";
 
 WiFiUDP wifi_udp;
-String pc_ip = "192.168.1.7";
+String pc_ip = "192.168.2.5";
 int pc_port = 12000;
 int m5_port = 12001;
 
