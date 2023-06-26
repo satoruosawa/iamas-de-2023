@@ -1,8 +1,8 @@
 #include <M5Stack.h>
 #include <WiFi.h>
 
-String ssid = "Buffalo-G-8500";     // WiFiのSSIDを指定
-String password = "55dbda7bfde68";  // WiFiパスワードを指定
+String ssid = "iamas-de";        // WiFiのSSIDを指定
+String password = "pass-iamas";  // WiFiパスワードを指定
 
 String ntp_server = "ntp.nict.jp";  // NTPサーバーのアドレス
 
@@ -55,6 +55,6 @@ void loop() {
   M5.Lcd.println(
     String(time_data.tm_year + 1900) + "/" + String(time_data.tm_mon + 1) + "/"
     + String(time_data.tm_mday) + " " + String(time_data.tm_hour) + ":"
-    + String(time_data.tm_min) + ":" + String(time_data.tm_sec) + "   ");
+    + String(time_data.tm_min) + ":" + String(time_data.tm_sec) + "        ");
   delay(100);
 }

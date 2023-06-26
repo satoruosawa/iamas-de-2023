@@ -1,4 +1,3 @@
-#include <Wire.h>
 #include <M5Stack.h>
 #include "Adafruit_MPR121.h"
 

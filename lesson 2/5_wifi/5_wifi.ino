@@ -2,8 +2,8 @@
 #include <WiFi.h>
 
 // Wi-Fiの設定
-String ssid = "Buffalo-G-8500";     // WiFiのSSIDを指定
-String password = "55dbda7bfde68";  // WiFiパスワードを指定
+String ssid = "iamas-de";        // WiFiのSSIDを指定
+String password = "pass-iamas";  // WiFiパスワードを指定
 
 void setup() {
   M5.begin();

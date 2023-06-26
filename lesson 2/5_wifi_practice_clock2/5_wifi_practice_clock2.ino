@@ -55,22 +55,22 @@ void loop() {
   float hh_value = (time_data.tm_hour % 12 + time_data.tm_min / 60.0 + time_data.tm_sec / 3600.0) / 12.0;
   img.drawLine(center_x,
                center_y,
-               center_x + hh_length * cos(TWO_PI * hh_value - PI / 2),
-               center_y + hh_length * sin(TWO_PI * hh_value - PI / 2),
+               center_x + hh_length * cos(TWO_PI * hh_value - HALF_PI),
+               center_y + hh_length * sin(TWO_PI * hh_value - HALF_PI),
                WHITE);
 
   float mh_value = (time_data.tm_min + time_data.tm_sec / 60.0) / 60.0;
   img.drawLine(center_x,
                center_y,
-               center_x + mh_length * cos(TWO_PI * mh_value - PI / 2),
-               center_y + mh_length * sin(TWO_PI * mh_value - PI / 2),
+               center_x + mh_length * cos(TWO_PI * mh_value - HALF_PI),
+               center_y + mh_length * sin(TWO_PI * mh_value - HALF_PI),
                WHITE);
 
   float sh_value = time_data.tm_sec / 60.0;
   img.drawLine(center_x,
                center_y,
-               center_x + sh_length * cos(TWO_PI * sh_value - PI / 2),
-               center_y + sh_length * sin(TWO_PI * sh_value - PI / 2),
+               center_x + sh_length * cos(TWO_PI * sh_value - HALF_PI),
+               center_y + sh_length * sin(TWO_PI * sh_value - HALF_PI),
                LIGHTGREY);
   img.pushSprite(60, 20);
 }
