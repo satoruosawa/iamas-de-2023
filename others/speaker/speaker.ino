@@ -1,5 +1,11 @@
 #include <M5Stack.h>
 
+/*
+ある程度任意の波形を出力することはできるが、処理が止まってしまう。
+今回の課題用には使いにくい
+*/
+
+
 void setup() {
   M5.begin();
   M5.Speaker.begin();
