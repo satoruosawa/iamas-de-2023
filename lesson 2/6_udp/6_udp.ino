@@ -7,9 +7,9 @@ String password = "pass-iamas";  // WiFiパスワードを指定
 
 // Wi-Fi UDP の設定
 WiFiUDP wifi_udp;
-String pc_ip = "192.168.2.5";  // PCのIPアドレス
-int pc_port = 12000;           // 送信先のポート
-int m5_port = 12001;           // M5Stackのポート
+String pc_ip = "XXX.XXX.XXX.XXX";  // PCのIPアドレスを指定
+int pc_port = 12000;               // 送信先のポート
+int m5_port = 12001;               // M5Stackのポート
 
 int number = 0;
 

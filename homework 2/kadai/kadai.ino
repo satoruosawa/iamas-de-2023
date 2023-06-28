@@ -11,6 +11,10 @@ bool getTouchedValue(uint16_t touched_data, int pin) {
   return (touched_data & (1 << pin)) != 0;
 }
 
+uint16_t getColor(uint8_t red, uint8_t green, uint8_t blue){
+  return ((red>>3)<<11) | ((green>>2)<<5) | (blue>>3);
+}
+
 void setup() {
   M5.begin();
 
@@ -42,7 +46,7 @@ void loop() {
         M5.Speaker.tone(freq, 40);  // 3135Hzの音を40ミリ秒再生
         M5.Lcd.fillRect(x, y, 80, 60, WHITE);
       } else {
-        M5.Lcd.fillRect(x, y, 80, 60, DARKGREY);
+        M5.Lcd.fillRect(x, y, 80, 60, getColor(50,50,50));
       }
     }
   }
